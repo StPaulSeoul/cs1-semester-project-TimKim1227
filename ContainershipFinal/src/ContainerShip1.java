@@ -152,12 +152,23 @@ public class ContainerShip1 extends Applet {
 	private static void placeComponents2(JPanel panel, int cnt, Container1[] box) {		//Writing Contents for the Lists of Container Box(es)
 		panel.setLayout(null);
 		JLabel info;
+		JLabel we;
+		int total = 0;
+		int count = 0;
+		for (int i = 0; i < cnt; i++) {
+			total += box[i].weight;
+		}
+		String total1 = Integer.toString(total);
 		for (int i = 0; i < cnt; i++) {
 			String information = String.format("%d. Color: %7s  Weight: %10d",i+1, box[i].color, box[i].weight);
 			info = new JLabel(information);
 			info.setBounds(10, 50 + (i * 25), 300, 125);			//i*25 Equals To One Line Below Here
 			panel.add(info);
+			count = 50 + i*25;
 		}
+		we = new JLabel(String.format("Total weight: %7s",total1));
+		we.setBounds(10, count+25 , 300, 125);			
+		panel.add(we);
 	}
 	
 }
